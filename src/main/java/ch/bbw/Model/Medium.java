@@ -29,17 +29,17 @@ public class Medium {
     @Column(name = "seitenAnzahl")
     private int seitenAnzahl;
 
-    @OneToMany
-    private Set<Sprache> sprache;
+    @ManyToOne
+    private Sprache sprache;
 
-    @OneToMany
-    private Set<Verlag> verlag;
+    @ManyToOne
+    private Verlag verlag;
 
-    @OneToMany
-    private Set<Kaufort> kaufort;
+    @ManyToOne
+    private Kaufort kaufort;
 
-    @OneToMany
-    private Set<Typ> typ;
+    @ManyToOne
+    private Typ typ;
 
     @Column(name = "kommentar")
     private String kommentar;
