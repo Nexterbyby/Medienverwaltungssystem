@@ -30,17 +30,16 @@ public class Medium {
     private int seitenAnzahl;
 
     @OneToMany
-    @NotFound(action = ClassNotFoundAction.IGNORE)
-    private Sprache sprache;
+    private Set<Sprache> sprache;
 
     @OneToMany
-    private Verlag verlag;
+    private Set<Verlag> verlag;
 
     @OneToMany
-    private Kaufort kaufort;
+    private Set<Kaufort> kaufort;
 
     @OneToMany
-    private Typ typ;
+    private Set<Typ> typ;
 
     @Column(name = "kommentar")
     private String kommentar;
