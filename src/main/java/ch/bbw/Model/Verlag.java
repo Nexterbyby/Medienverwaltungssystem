@@ -24,7 +24,15 @@ public class Verlag {
         this.name = name;
     }
 
-//Getter and Setter
+    @Override
+    public String toString() {
+        return "Verlag{" +
+                "verlag_id=" + verlag_id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
+    //Getter and Setter
 
     public int getVerlag_id() {
         return verlag_id;
