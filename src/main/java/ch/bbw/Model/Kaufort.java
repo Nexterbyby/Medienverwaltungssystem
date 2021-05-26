@@ -9,24 +9,23 @@ import javax.persistence.*;
  */
 
 @Entity
-@Table(name = "typ")
-public class Typ {
-
+@Table(name = "kaufort")
+public class Kaufort {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "typ_id", nullable = false, unique = true)
+    @Column(name = "kaufort_id", nullable = false, unique = true)
     private int id;
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    public Typ(int id, String name) {
+    public Kaufort(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Typ(){
-        // empty
+    public Kaufort(){
+        //empty
     }
 
     public int getId() {
@@ -43,13 +42,5 @@ public class Typ {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return "Typ{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
     }
 }
