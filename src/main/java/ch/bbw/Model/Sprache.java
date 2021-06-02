@@ -1,11 +1,7 @@
 package ch.bbw.Model;
 
-
-
-
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+
 
 /**
  * @Author Nghia Dao

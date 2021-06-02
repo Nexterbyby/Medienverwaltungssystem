@@ -7,11 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * JavaFX App
@@ -39,25 +35,6 @@ public class App extends Application {
 
     public static void main(String[] args) {
         System.out.println("Person yeets...");
-        EntityManagerFactory psfactory = Persistence.createEntityManagerFactory("MyPersistanceUnit");
-        EntityManager entitymanager = psfactory.createEntityManager();
-
-        entitymanager.getTransaction().begin();
-        @SuppressWarnings("unchecked")
-        List<Medium> listMedium = entitymanager.createNamedQuery("Medium.findAll").getResultList();
-
-        entitymanager.getTransaction().commit();
-        entitymanager.close();
-        psfactory.close();
-
-        if (listMedium == null) {
-            System.out.println("No medium found");
-        } else {
-            for (Medium ps : listMedium) {
-                System.out.println(ps);
-            }
-            launch();
-        }
-
+        launch();
     }
 }

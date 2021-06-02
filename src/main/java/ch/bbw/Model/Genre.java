@@ -10,14 +10,19 @@ import java.util.Set;
 @NamedQuery(name ="Genre.findAll", query = "Select e FROM Genre e")
 public class Genre {
     @Id
-    @Column(name = "genre_id", unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "genre_id", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int genre_id;
 
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "medium")
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "medium_genre",
+            joinColumns = {@JoinColumn(name = "genre_idfs")},
+            inverseJoinColumns = {@JoinColumn(name = "medium_idfs")}
+    )
     private Set<Medium> mediumSet = new HashSet<>();
 
     public Genre() {
