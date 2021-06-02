@@ -2,6 +2,7 @@ package ch.bbw.Model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "verlag")
@@ -15,6 +16,9 @@ public class Verlag {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "verlag")
+    private Set<Medium> medium;
 
     public Verlag() {
     }

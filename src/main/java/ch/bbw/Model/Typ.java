@@ -1,6 +1,7 @@
 package ch.bbw.Model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @author Nexterbyby
@@ -19,6 +20,9 @@ public class Typ {
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
+
+    @OneToMany(mappedBy = "typ")
+    private Set<Medium> medium;
 
     public Typ(int id, String name) {
         this.id = id;

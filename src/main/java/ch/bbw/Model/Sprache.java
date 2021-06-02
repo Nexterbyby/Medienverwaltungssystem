@@ -1,6 +1,7 @@
 package ch.bbw.Model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 /**
@@ -20,6 +21,9 @@ public class Sprache {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "sprache")
+    private Set<Medium> medium;
 
     public Sprache() {
     }

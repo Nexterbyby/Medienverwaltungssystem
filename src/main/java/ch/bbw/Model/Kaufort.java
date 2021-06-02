@@ -1,6 +1,7 @@
 package ch.bbw.Model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * @author Nexterbyby
@@ -18,6 +19,9 @@ public class Kaufort {
 
     @Column(name = "name", nullable = false, unique = true)
     private String name;
+
+    @OneToMany(mappedBy = "kaufort")
+    private Set<Medium> medium;
 
     public Kaufort(int id, String name) {
         this.id = id;
