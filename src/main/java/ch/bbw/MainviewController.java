@@ -29,9 +29,8 @@ public class MainviewController {
         App.setRoot("create_Game");
     }
     @FXML
-    private void actionHibernate(){
+    public void actionHibernate(){
         //db_manager.startup();
         db_manager.printGenres();
-        db_manager.closeup();
     }
 }
