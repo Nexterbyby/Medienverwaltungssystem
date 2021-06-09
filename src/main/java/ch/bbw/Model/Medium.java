@@ -23,6 +23,9 @@ public class Medium {
     @Column(name = "kaufdatum")
     private String kaufdatum;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "preis")
     private Double preis;
 
@@ -77,6 +80,7 @@ public class Medium {
         return "Medium{" +
                 "medium_id=" + medium_id +
                 ", kaufdatum='" + kaufdatum + '\'' +
+                ", name='" + name + '\'' +
                 ", preis=" + preis +
                 ", seitenAnzahl=" + seitenAnzahl +
                 ", sprache=" + sprache +
@@ -169,5 +173,13 @@ public class Medium {
 
     public void setGenres(Set<Genre> genres) {
         this.genres = genres;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
