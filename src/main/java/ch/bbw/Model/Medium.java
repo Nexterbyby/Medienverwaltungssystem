@@ -16,8 +16,8 @@ import java.util.Set;
 public class Medium {
 
     @Id
-    @Column(name = "medium_id", unique = true)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "medium_id", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int medium_id;
 
     @Column(name = "kaufdatum")
@@ -30,26 +30,25 @@ public class Medium {
     private int seitenAnzahl;
 
     @ManyToOne
+    @JoinColumn(name = "sprache_idfs")
     private Sprache sprache;
 
     @ManyToOne
+    @JoinColumn (name = "verlag_idfs")
     private Verlag verlag;
 
     @ManyToOne
+    @JoinColumn (name = "kaufort_idfs")
     private Kaufort kaufort;
 
     @ManyToOne
+    @JoinColumn (name = "typ_idfs")
     private Typ typ;
 
     @Column(name = "kommentar")
     private String kommentar;
 
-    @ManyToMany(cascade = { CascadeType.ALL})
-    @JoinTable(
-            name = "GameGenre",
-            joinColumns = { @JoinColumn(name = "medium.medium_id")},
-            inverseJoinColumns = { @JoinColumn (name = "genre.genre_id")}
-    )
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "mediumSet")
     Set<Genre> genres = new HashSet<>();
 
 
