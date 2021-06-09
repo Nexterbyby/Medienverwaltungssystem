@@ -30,8 +30,6 @@ public class MainviewController {
     }
     @FXML
     private void actionHibernate(){
-        //db_manager.startup();
-        db_manager.printGenres();
-        db_manager.closeup();
+
     }
 }
