@@ -1,9 +1,16 @@
 package ch.bbw;
 
 import java.io.IOException;
+
+import ch.bbw.DBManager.DatabaseManager;
 import javafx.fxml.FXML;
 
 public class MainviewController {
+    private DatabaseManager db_manager = new DatabaseManager();
+
+    public MainviewController(){
+        db_manager.startup();
+    }
 
     @FXML
     private void editBook() throws IOException {
@@ -20,5 +27,11 @@ public class MainviewController {
     @FXML
     private void createGame() throws IOException {
         App.setRoot("create_Game");
+    }
+    @FXML
+    private void actionHibernate(){
+        //db_manager.startup();
+        db_manager.printGenres();
+        db_manager.closeup();
     }
 }

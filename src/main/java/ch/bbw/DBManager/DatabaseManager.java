@@ -1,8 +1,11 @@
 package ch.bbw.DBManager;
 
+import ch.bbw.Model.Genre;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 /**
  * @author Nexterbyby
@@ -17,15 +20,44 @@ public class DatabaseManager {
 
     public DatabaseManager(){
         // Nothing...
+        System.out.println("Constructor called");
     }
 
     public void startup(){
+        System.out.println("Startup called");
         this.emFactory = Persistence.createEntityManagerFactory("MyPersistanceUnit");
-        this.manager = emFactory.createEntityManager();
+        if(emFactory == null) System.out.println("emFactory is null");
+
+        try{
+            this.manager = emFactory.createEntityManager();
+        }catch (Exception e){
+            System.out.println("Manager Failed");
+            e.getCause();
+            System.out.println(e.toString());
+        }
+        System.out.println("Startup finished");
     }
 
     public void closeup(){
         this.emFactory.close();
         this.manager.close();
     }
+
+    // +------------------------+
+    // | READ OPERATIONS        |
+    // +------------------------+
+
+    public void printGenres(){
+        manager.getTransaction().begin();
+        @SuppressWarnings("unchecked")
+        List<Genre> genres = manager.createQuery("SELECT o FROM Genre o").getResultList();
+        manager.getTransaction().commit();
+        if(genres != null){
+            genres.forEach(System.out::println);
+        }else{
+            System.out.println("The genre list is empty");
+        }
+    }
+
+
 }

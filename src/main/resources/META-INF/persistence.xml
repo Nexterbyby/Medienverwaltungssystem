@@ -4,7 +4,12 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd%22%3E">
     <persistence-unit
             name="MyPersistanceUnit" transaction-type="RESOURCE_LOCAL">
+        <class>ch.bbw.Model.Genre</class>
+        <class>ch.bbw.Model.Kaufort</class>
         <class>ch.bbw.Model.Medium</class>
+        <class>ch.bbw.Model.Sprache</class>
+        <class>ch.bbw.Model.Typ</class>
+        <class>ch.bbw.Model.Verlag</class>
         <properties>
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.MySQL5Dialect"/>

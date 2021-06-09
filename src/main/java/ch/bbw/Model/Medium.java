@@ -30,15 +30,19 @@ public class Medium {
     private int seitenAnzahl;
 
     @ManyToOne
+    @JoinColumn(name = "sprache_idfs")
     private Sprache sprache;
 
     @ManyToOne
+    @JoinColumn (name = "verlag_idfs")
     private Verlag verlag;
 
     @ManyToOne
+    @JoinColumn (name = "kaufort_idfs")
     private Kaufort kaufort;
 
     @ManyToOne
+    @JoinColumn (name = "typ_idfs")
     private Typ typ;
 
     @Column(name = "kommentar")

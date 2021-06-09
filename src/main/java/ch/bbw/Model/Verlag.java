@@ -9,18 +9,17 @@ import javax.persistence.*;
 public class Verlag {
 
     @Id
-    @Column(name = "verlag_id", unique = true)
+    @Column(name = "verlag_id", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int verlag_id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     public Verlag() {
     }
 
-    public Verlag(int verlag_id, String name) {
-        this.verlag_id = verlag_id;
+    public Verlag(String name) {
         this.name = name;
     }
 
