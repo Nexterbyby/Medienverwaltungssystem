@@ -10,5 +10,6 @@ module ch.bbw {
 
     opens ch.bbw to javafx.fxml;
     opens ch.bbw.Model to org.hibernate.orm.core;
+    exports ch.bbw.DBManager;
     exports ch.bbw;
 }
