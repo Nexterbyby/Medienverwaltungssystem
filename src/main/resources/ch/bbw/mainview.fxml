@@ -3,15 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="480.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbw.MainviewController">
+<VBox fx:id="vbox" alignment="CENTER" prefHeight="480.0" prefWidth="640.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbw.MainviewController">
    <children>
       <Label text="Database" />
-      <TextArea prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="view2" prefHeight="246.0" prefWidth="600.0" />
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" text="Convert to CSV" />
@@ -36,7 +36,7 @@
             </VBox>
          </children>
       </HBox>
-      <Button fx:id="query_btn" mnemonicParsing="false" onAction="#actionHibernate" text="test hibernate" />
+      <Button fx:id="query_btn" mnemonicParsing="false" onAction="#outputListView" text="test hibernate" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
