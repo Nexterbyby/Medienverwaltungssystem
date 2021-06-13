@@ -34,12 +34,6 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        MainviewController mainviewController1 = (MainviewController) fxmlLoader.getController();
-        try {
-            mainviewController1.outputListView();
-        } catch (Exception e){
-            System.out.println("NULL");
-        }
         return fxmlLoader.load();
     }
 

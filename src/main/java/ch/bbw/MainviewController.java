@@ -43,19 +43,6 @@ public class MainviewController implements Initializable {
     public void actionHibernate(){
         System.out.println(db_manager.getAllMedia().toString());
     }
-
-    @FXML
-    public void outputListView(){
-        ObservableList<String> m = FXCollections.observableArrayList();
-        try {
-            m.add(db_manager.getAllMedia().toString());
-            view2.setItems(m);
-        } catch (NullPointerException f){
-            System.out.println("NULL");
-            f.printStackTrace();
-        }
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         view2.getItems().add( db_manager.getAllMedia().toString());
