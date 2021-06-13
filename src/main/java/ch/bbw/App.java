@@ -16,12 +16,16 @@ public class App extends Application {
 
     private static Scene scene;
 
+    private MainviewController mainviewController = new MainviewController();
+
+
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("mainview"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        mainviewController.actionHibernate();
     }
 
     static void setRoot(String fxml) throws IOException {
