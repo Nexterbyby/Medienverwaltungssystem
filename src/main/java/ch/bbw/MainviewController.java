@@ -14,13 +14,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 
 public class MainviewController implements Initializable {
-    private DatabaseManager db_manager = new DatabaseManager();
 
     @FXML
     ListView<String> view2;
 
     public MainviewController(){
-        db_manager.startup();
+        System.out.println("MVC called");
+        if(!App.db_manager.isAlive()){
+            App.db_manager.startup();
+        }else{
+            System.out.println("db_manager already alive");
+        }
     }
 
     @FXML
@@ -40,11 +44,12 @@ public class MainviewController implements Initializable {
         App.setRoot("create_Game");
     }
     @FXML
-    public void actionHibernate(){
-        System.out.println(db_manager.getAllMedia().toString());
+    private void actionHibernate(){
+        //nothing
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        view2.getItems().add( db_manager.getAllMedia().toString());
+        System.out.println(App.db_manager.getAllMedia().toString()); //print in console
+        view2.getItems().add(App.db_manager.getAllMedia().toString()); // print in List View
     }
 }

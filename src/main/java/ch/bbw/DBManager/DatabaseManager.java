@@ -14,12 +14,12 @@ import java.util.List;
  * This inserts, update, deletes and reads datasets from
  * the database.
  */
-public class DatabaseManager {
+public class DatabaseManager{
     private EntityManagerFactory emFactory;
     private EntityManager manager;
+    private boolean alive;
 
     public DatabaseManager(){
-        // Nothing...
         System.out.println("DatabaseManager init");
     }
 
@@ -27,6 +27,7 @@ public class DatabaseManager {
         try{
             this.emFactory = Persistence.createEntityManagerFactory("MyPersistanceUnit");
             this.manager = emFactory.createEntityManager();
+            this.alive = true;
         }catch (Exception e){
             System.out.println("startup() failed");
         }
@@ -310,4 +311,11 @@ public class DatabaseManager {
         }
     }*/
 
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
 }
