@@ -2,9 +2,11 @@ package ch.bbw;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import ch.bbw.DBManager.DatabaseManager;
+import ch.bbw.Formatter.TableFormatter;
 import ch.bbw.Model.Medium;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
 
 public class MainviewController implements Initializable {
 
@@ -50,6 +53,7 @@ public class MainviewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println(App.db_manager.getAllMedia().toString()); //print in console
-        view2.getItems().add(App.db_manager.getAllMedia().toString()); // print in List View
+        String list = TableFormatter.formatTableMedium(App.db_manager.getAllMedia());
+        view2.getItems().add(list); // print in List View
     }
 }
