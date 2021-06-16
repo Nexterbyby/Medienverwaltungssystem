@@ -29,9 +29,6 @@ public class Medium {
     @Column(name = "preis")
     private Double preis;
 
-    @Column(name = "seitenAnzahl")
-    private int seitenAnzahl;
-
     @ManyToOne
     @JoinColumn(name = "sprache_idfs")
     private Sprache sprache;
@@ -61,17 +58,16 @@ public class Medium {
     public Medium(){
     }
 
-    public Medium (int medium_id,  String kaufdatum, Double preis, int seitenAnzahl, String kommentar){
+    public Medium (int medium_id,  String kaufdatum, Double preis, String kommentar){
         super();
         this.kaufdatum = kaufdatum;
         this.preis = preis;
-        this.seitenAnzahl = seitenAnzahl;
+
         this.kommentar = kommentar;
     }
-    public Medium (  String kaufdatum, Double preis, int seitenAnzahl, String kommentar){
+    public Medium (  String kaufdatum, Double preis, String kommentar){
         this.kaufdatum = kaufdatum;
         this.preis = preis;
-        this.seitenAnzahl = seitenAnzahl;
         this.kommentar = kommentar;
     }
 
@@ -82,7 +78,6 @@ public class Medium {
                 ", kaufdatum='" + kaufdatum + '\'' +
                 ", name='" + name + '\'' +
                 ", preis=" + preis +
-                ", seitenAnzahl=" + seitenAnzahl +
                 ", sprache=" + sprache +
                 ", verlag=" + verlag +
                 ", kaufort=" + kaufort +
@@ -117,14 +112,6 @@ public class Medium {
 
     public void setPreis(Double preis) {
         this.preis = preis;
-    }
-
-    public int getSeitenAnzahl() {
-        return seitenAnzahl;
-    }
-
-    public void setSeitenAnzahl(int seitenAnzahl) {
-        this.seitenAnzahl = seitenAnzahl;
     }
 
     public Sprache getSprache() {
