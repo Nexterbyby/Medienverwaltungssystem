@@ -90,14 +90,6 @@ public class DatabaseManager{
         return verlaege;
     }
 
-    /*public List<Publisher> getAllPublishers(){
-        manager.getTransaction().begin();
-        @SuppressWarnings("unchecked")
-        List<Publisher> publisher = manager.createQuery("SELECT o FROM Publisher o").getResultList();
-        manager.getTransaction().commit();
-        return publisher;
-    }*/
-
 
     // +-------------------------------------------------------------------------------------+
     // | SAVE OPERATIONS                                                                     |
@@ -175,18 +167,6 @@ public class DatabaseManager{
         }
     }
 
-    /*public void savePublisher(Publisher publisher){
-        manager.getTransaction().begin();
-        try{
-            manager.persist(publisher);
-            manager.getTransaction().commit();
-            System.out.println(publisher.toString() + " saved");
-        }catch (Exception e){
-            manager.getTransaction().rollback();
-            e.printStackTrace();
-        }
-    }*/
-
 
     // +------------------------------------------------------------------------------------------------+
     // | UPDATE DATASETS                                                                                |
@@ -203,7 +183,6 @@ public class DatabaseManager{
             xMedium.setKaufort(medium.getKaufort());
             xMedium.setKommentar(medium.getKommentar());
             xMedium.setPreis(medium.getPreis());
-            xMedium.setSeitenAnzahl(medium.getSeitenAnzahl());
             xMedium.setSprache(medium.getSprache());
             xMedium.setTyp(medium.getTyp());
             xMedium.setVerlag(medium.getVerlag());
@@ -298,18 +277,6 @@ public class DatabaseManager{
         }
     }
 
-    /*public void removePublisher(int id){
-        manager.getTransaction().begin();
-        try{
-            Publisher publisher = manager.find(Publisher.class, id);
-            manager.remove(publisher);
-            manager.getTransaction().commit();
-            System.out.println(publisher.toString() + " removed");
-        }catch (Exception e){
-            manager.getTransaction().rollback();
-            e.printStackTrace();
-        }
-    }*/
 
     public boolean isAlive() {
         return alive;
