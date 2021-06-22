@@ -54,6 +54,16 @@ public class MainviewController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println(App.db_manager.getAllMedia().toString()); //print in console
         String list = TableFormatter.formatTableMedium(App.db_manager.getAllMedia());
+        /*
+        for (Medium m:
+             App.db_manager.getAllMedia()) {
+            String list2 = m.toString();
+            view2.getItems().add(list2);
+        }
+         */
+        System.out.println(App.db_manager.getAllGenres());
+        //String list2 = TableFormatter.formatTableGenre(App.db_manager.getAllGenres()).toString();
         view2.getItems().add(list); // print in List View
+        //view2.getItems().add(list2);
     }
 }
