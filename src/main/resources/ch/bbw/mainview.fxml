@@ -18,14 +18,12 @@
             <Button mnemonicParsing="false" text="Convert to EXCEL" />
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="editBook" onAction="#editBook" text="EditBooks" />
-                  <Button fx:id="editGames" onAction="#editGame" text="EditGames" />
+                  <Button fx:id="editBook" onAction="#editBook" text="Edit" />
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="createBook" onAction="#createBook" text="CreateBooks" />
-                  <Button fx:id="createGame" onAction="#createGame" text="Create Games" />
+                  <Button fx:id="createBook" onAction="#createBook" text="Create" />
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">

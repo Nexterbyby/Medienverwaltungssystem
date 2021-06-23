@@ -2,14 +2,45 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" prefHeight="480.0" prefWidth="641.0" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbw.UpdateDeleteBookController">
     <children>
         <Label text="Edit the Data" />
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="246.0" prefWidth="602.0">
+         <children>
+            <VBox prefHeight="246.0" prefWidth="205.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="32.0" text="Name" />
+                  <Label text="Use CurrentTime" />
+                  <Label prefHeight="29.0" prefWidth="26.0" text="Preis" />
+                  <Label prefHeight="34.0" prefWidth="42.0" text="Sprache" />
+                  <Label text="Kaufort" />
+                  <Label prefHeight="28.0" prefWidth="19.0" text="Typ" />
+                  <Label prefHeight="28.0" prefWidth="67.0" text="Publisher" />
+                  <Label prefHeight="27.0" prefWidth="82.0" text="Kommentar" />
+               </children>
+            </VBox>
+            <VBox prefHeight="246.0" prefWidth="340.0">
+               <children>
+                  <TextField fx:id="ename" />
+                  <CheckBox fx:id="ccurrenttime" mnemonicParsing="false" text="CurrentTime" />
+                  <TextField fx:id="epreis" />
+                  <ChoiceBox fx:id="csprache" prefHeight="26.0" prefWidth="346.0" />
+                  <ChoiceBox fx:id="ckaufort" prefHeight="26.0" prefWidth="351.0" />
+                  <ChoiceBox fx:id="ctyp" prefHeight="26.0" prefWidth="342.0" />
+                  <ChoiceBox fx:id="cverlag" prefHeight="26.0" prefWidth="341.0" />
+                  <TextField fx:id="ekommentar" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox prefHeight="30.0" prefWidth="588.0">
          <children>
               <Button fx:id="updateBookButton" onAction="#switchToMainview" text="Update" />
             <Button fx:id="updateBookButton1" onAction="#switchToMainview" text="Delete" />
