@@ -29,7 +29,7 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label text="ID" />
-                  <TextField prefHeight="26.0" prefWidth="36.0" />
+                  <TextField fx:id="id_text" prefHeight="26.0" prefWidth="36.0" />
                </children>
             </VBox>
          </children>

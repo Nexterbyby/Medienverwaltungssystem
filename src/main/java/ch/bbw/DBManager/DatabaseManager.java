@@ -90,6 +90,11 @@ public class DatabaseManager{
         return verlaege;
     }
 
+    public Medium getMedia(int id){
+        Medium xMedium = manager.find(Medium.class, id);
+        return xMedium;
+    }
+
 
     // +-------------------------------------------------------------------------------------+
     // | SAVE OPERATIONS                                                                     |
@@ -275,6 +280,19 @@ public class DatabaseManager{
             manager.getTransaction().rollback();
             e.printStackTrace();
         }
+    }
+
+    public boolean checkMediumID(int id){
+        try{
+            Medium xMedium = manager.find(Medium.class, id);
+            if(xMedium != null){
+                return true;
+            }
+        }catch (Exception e){
+            manager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+        return false;
     }
 
 

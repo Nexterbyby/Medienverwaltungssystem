@@ -30,9 +30,11 @@ public class UpdateDeleteBookController implements Initializable {
     @FXML
     private ChoiceBox<String> cverlag = new ChoiceBox<String>();
     @FXML
-    private TextField ename, epreis, ekommentar, eseite;
+    private TextField ename, epreis, ekommentar;
     @FXML
     private CheckBox ccurrenttime;
+
+    private MainviewController mvc;
 
 
     @Override
@@ -51,6 +53,13 @@ public class UpdateDeleteBookController implements Initializable {
             cverlag.getItems().add(v.toString());
         }
 
-
+        //FIRST TRY GET ID PUT TO PRESELECT
+        ename.setText(App.db_manager.getMedia(MainviewController.id).getName());
+        epreis.setText(App.db_manager.getMedia(MainviewController.id).getPreis().toString());
+        ekommentar.setText(App.db_manager.getMedia(MainviewController.id).getKommentar());
+        csprache.setValue(App.db_manager.getMedia(MainviewController.id).getSprache().toString());
+        ckaufort.setValue(App.db_manager.getMedia(MainviewController.id).getKaufort().toString());
+        ctyp.setValue(App.db_manager.getMedia(MainviewController.id).getTyp().toString());
+        cverlag.setValue(App.db_manager.getMedia(MainviewController.id).getVerlag().toString());
     }
 }
