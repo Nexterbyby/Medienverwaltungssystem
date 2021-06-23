@@ -2,19 +2,13 @@ package ch.bbw;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import ch.bbw.DBManager.DatabaseManager;
+import ch.bbw.Converter.Converter;
 import ch.bbw.Formatter.TableFormatter;
-import ch.bbw.Model.Medium;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Tab;
 
 public class MainviewController implements Initializable {
 
@@ -49,6 +43,15 @@ public class MainviewController implements Initializable {
     @FXML
     private void actionHibernate(){
         //nothing
+    }
+    @FXML
+    private void createCSV(){
+        Converter converter = new Converter();
+        try{
+            converter.convert();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
