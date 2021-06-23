@@ -2,6 +2,9 @@ package ch.bbw;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import ch.bbw.Model.*;
@@ -15,9 +18,20 @@ public class UpdateDeleteBookController implements Initializable {
 
     @FXML
     private void switchToMainview() throws IOException {
-        Medium replaceMedium = new Medium(ename.getText(), Double.parseDouble(epreis.getText()), csprache.getValue(),
-                cverlag.getValue(), ckaufort.getValue(), ctyp.getValue(),  ekommentar.getText() );
-        App.db_manager.updateMedium(MainviewController.id, replaceMedium);
+        if(ccurrenttime.isSelected()){
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            Timestamp s = Timestamp.valueOf(now.format(f));
+            Medium replaceMedium = new Medium( s,ename.getText(), Double.parseDouble(epreis.getText()), csprache.getValue(),
+                    cverlag.getValue(), ckaufort.getValue(), ctyp.getValue(), ekommentar.getText());
+            App.db_manager.updateMedium(MainviewController.id, replaceMedium);
+        } else {
+            Medium replaceMedium = new Medium(App.db_manager.getMedia(MainviewController.id).getKaufdatum(), ename.getText(), Double.parseDouble(epreis.getText()), csprache.getValue(),
+                    cverlag.getValue(), ckaufort.getValue(), ctyp.getValue(), ekommentar.getText());
+            App.db_manager.updateMedium(MainviewController.id, replaceMedium);
+        }
+
+
         App.setRoot("mainview");
     }
 
