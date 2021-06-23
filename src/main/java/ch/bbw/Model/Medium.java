@@ -62,12 +62,21 @@ public class Medium {
         super();
         this.kaufdatum = kaufdatum;
         this.preis = preis;
-
         this.kommentar = kommentar;
     }
     public Medium (  String kaufdatum, Double preis, String kommentar){
         this.kaufdatum = kaufdatum;
         this.preis = preis;
+        this.kommentar = kommentar;
+    }
+
+    public Medium(String name, Double preis, Sprache sprache, Verlag verlag, Kaufort kaufort, Typ typ, String kommentar) {
+        this.name = name;
+        this.preis = preis;
+        this.sprache = sprache;
+        this.verlag = verlag;
+        this.kaufort = kaufort;
+        this.typ = typ;
         this.kommentar = kommentar;
     }
 

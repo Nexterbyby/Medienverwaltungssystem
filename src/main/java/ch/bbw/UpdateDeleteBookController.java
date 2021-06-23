@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import ch.bbw.Model.Kaufort;
-import ch.bbw.Model.Sprache;
-import ch.bbw.Model.Typ;
-import ch.bbw.Model.Verlag;
+import ch.bbw.Model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
@@ -18,48 +15,50 @@ public class UpdateDeleteBookController implements Initializable {
 
     @FXML
     private void switchToMainview() throws IOException {
+        Medium replaceMedium = new Medium(ename.getText(), Double.parseDouble(epreis.getText()), csprache.getValue(),
+                cverlag.getValue(), ckaufort.getValue(), ctyp.getValue(),  ekommentar.getText() );
+        App.db_manager.updateMedium(MainviewController.id, replaceMedium);
         App.setRoot("mainview");
     }
 
     @FXML
-    private ChoiceBox<String> csprache = new ChoiceBox<String>();
+    private ChoiceBox<Sprache> csprache = new ChoiceBox<Sprache>();
     @FXML
-    private ChoiceBox<String> ckaufort = new ChoiceBox<String>();
+    private ChoiceBox<Kaufort> ckaufort = new ChoiceBox<Kaufort>();
     @FXML
-    private ChoiceBox<String> ctyp = new ChoiceBox<String>();
+    private ChoiceBox<Typ> ctyp = new ChoiceBox<Typ>();
     @FXML
-    private ChoiceBox<String> cverlag = new ChoiceBox<String>();
+    private ChoiceBox<Verlag> cverlag = new ChoiceBox<Verlag>();
     @FXML
     private TextField ename, epreis, ekommentar;
     @FXML
     private CheckBox ccurrenttime;
 
-    private MainviewController mvc;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (Sprache s:
                 App.db_manager.getAllSprachen()) {
-            csprache.getItems().add(s.toString());
+            csprache.getItems().add(s);
         }
         for (Kaufort k: App.db_manager.getAllKauforte()){
-            ckaufort.getItems().add(k.toString());
+            ckaufort.getItems().add(k);
         }
         for (Typ t: App.db_manager.getAllTypen()){
-            ctyp.getItems().add(t.toString());
+            ctyp.getItems().add(t);
         }
         for (Verlag v: App.db_manager.getAllVerlaege()){
-            cverlag.getItems().add(v.toString());
+            cverlag.getItems().add(v);
         }
 
         //FIRST TRY GET ID PUT TO PRESELECT
         ename.setText(App.db_manager.getMedia(MainviewController.id).getName());
         epreis.setText(App.db_manager.getMedia(MainviewController.id).getPreis().toString());
         ekommentar.setText(App.db_manager.getMedia(MainviewController.id).getKommentar());
-        csprache.setValue(App.db_manager.getMedia(MainviewController.id).getSprache().toString());
-        ckaufort.setValue(App.db_manager.getMedia(MainviewController.id).getKaufort().toString());
-        ctyp.setValue(App.db_manager.getMedia(MainviewController.id).getTyp().toString());
-        cverlag.setValue(App.db_manager.getMedia(MainviewController.id).getVerlag().toString());
+        csprache.setValue(App.db_manager.getMedia(MainviewController.id).getSprache());
+        ckaufort.setValue(App.db_manager.getMedia(MainviewController.id).getKaufort());
+        ctyp.setValue(App.db_manager.getMedia(MainviewController.id).getTyp());
+        cverlag.setValue(App.db_manager.getMedia(MainviewController.id).getVerlag());
     }
 }
