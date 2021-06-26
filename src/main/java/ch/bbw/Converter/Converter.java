@@ -1,5 +1,6 @@
 package ch.bbw.Converter;
 
+import ch.bbw.Formatter.ListToStringFormatter;
 import ch.bbw.Model.Medium;
 
 import java.io.*;
@@ -20,7 +21,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class Converter {
 
     public Converter(){
-
+        // nothing
     }
 
     public void convertToCSV(){
@@ -38,8 +39,10 @@ public class Converter {
                         m.getPreis() + ";" +
                         m.getSprache().getName() + ";" +
                         m.getVerlag().getName() + ";" +
+                        ListToStringFormatter.format(m.getGenres()) + ";" +
                         m.getTyp().getName() + ";" +
-                        m.getKommentar()
+                        m.getKommentar() +
+                        "\n"
                 ;
             }
             bufferedWriter.write(out);
@@ -65,7 +68,7 @@ public class Converter {
                 headerCellStyle.setAlignment(HorizontalAlignment.LEFT);
                 headerCellStyle.setBorderBottom(BorderStyle.THIN);
                 headerCellStyle.setBottomBorderColor(IndexedColors.BLACK.getIndex());
-            medium.setColumnWidth(0, 8 * 256);
+            medium.setColumnWidth(0, 4 * 256);
             medium.setColumnWidth(1, 9 * 256);
             medium.setColumnWidth(2, 40 * 256);
             medium.setColumnWidth(3, 20 * 256);
@@ -73,8 +76,9 @@ public class Converter {
             medium.setColumnWidth(5, 9 * 256);
             medium.setColumnWidth(6, 15 * 256);
             medium.setColumnWidth(7, 20 * 256);
-            medium.setColumnWidth(8, 9 * 256);
-            medium.setColumnWidth(9, 60 * 256);
+            medium.setColumnWidth(8, 20 * 256);
+            medium.setColumnWidth(9, 9 * 256);
+            medium.setColumnWidth(10, 60 * 256);
             // get data from db
             List<Medium> mediumList = App.db_manager.getAllMedia();
             // insert data
@@ -82,13 +86,13 @@ public class Converter {
             Cell cell;
             Medium m;
             row = medium.createRow(1);
-            String [] headersTitels = {"Id", "Name", "Kaufdatum", "Kaufort", "Preis", "Sprache", "Verlag", "Typ", "Kommentar"};
-            for(int i = 0; i < 9; i++){
+            String [] headersTitels = {"Id", "Name", "Kaufdatum", "Kaufort", "Preis", "Sprache", "Publisher", "Genres", "Typ", "Kommentar"};
+            for(int i = 0; i < 10; i++){
                 row.createCell(1+i).setCellValue(headersTitels[i]);
                 row.getCell(i+1).setCellStyle(headerCellStyle);
             }
             for(int i = 0; i < mediumList.size(); i++){
-                m = mediumList.get(0);
+                m = mediumList.get(i);
                 row = medium.createRow(i+2);
                 row.createCell(1).setCellValue(m.getMedium_id());
                 row.createCell(2).setCellValue(m.getName());
@@ -97,9 +101,10 @@ public class Converter {
                 row.createCell(5).setCellValue(m.getPreis());
                 row.createCell(6).setCellValue(m.getSprache().getName());
                 row.createCell(7).setCellValue(m.getVerlag().getName());
-                row.createCell(8).setCellValue(m.getTyp().getName());
-                row.createCell(9).setCellValue(m.getKommentar());
-                for(int j = 0; j < 9; j++){
+                row.createCell(8).setCellValue(ListToStringFormatter.format(m.getGenres()));
+                row.createCell(9).setCellValue(m.getTyp().getName());
+                row.createCell(10).setCellValue(m.getKommentar());
+                for(int j = 0; j < 10; j++){
                     row.getCell(j+1).setCellStyle(cellStyle);
                 }
             }

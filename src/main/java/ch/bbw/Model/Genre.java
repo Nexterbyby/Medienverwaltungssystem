@@ -3,6 +3,7 @@ package ch.bbw.Model;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,24 +24,15 @@ public class Genre {
             joinColumns = {@JoinColumn(name = "genre_idfs")},
             inverseJoinColumns = {@JoinColumn(name = "medium_idfs")}
     )
-    private Set<Medium> mediumSet = new HashSet<>();
+    private List<Medium> mediumSet;
 
     public Genre() {
     }
 
-    public Genre(int genre_id, String name, Set<Medium> mediumSet) {
+    public Genre(int genre_id, String name, List<Medium> mediumSet) {
         this.genre_id = genre_id;
         this.name = name;
         this.mediumSet = mediumSet;
-    }
-
-    @Override
-    public String toString() {
-        return "Genre{" +
-                "genre_id=" + genre_id +
-                ", name='" + name + '\'' +
-                ", mediumSet=" + mediumSet +
-                '}';
     }
 
     public int getGenre_id() {
@@ -59,11 +51,11 @@ public class Genre {
         this.name = name;
     }
 
-    public Set<Medium> getMediumSet() {
+    public List<Medium> getMediumSet() {
         return mediumSet;
     }
 
-    public void setMediumSet(Set<Medium> mediumSet) {
+    public void setMediumSet(List<Medium> mediumSet) {
         this.mediumSet = mediumSet;
     }
 }
