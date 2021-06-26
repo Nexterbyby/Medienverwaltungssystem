@@ -38,8 +38,7 @@ public class Genre {
     public String toString() {
         return "Genre{" +
                 "genre_id=" + genre_id +
-                ", name='" + name + '\'' +
-                ", mediumSet=" + mediumSet +
+                ", name='" + name +
                 '}';
     }
 

@@ -28,6 +28,14 @@ public class Kaufort {
         //empty
     }
 
+    @Override
+    public String toString() {
+        return "Kaufort{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     public int getId() {
         return id;
     }

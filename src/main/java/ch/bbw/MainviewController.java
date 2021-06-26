@@ -15,11 +15,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 
 public class MainviewController implements Initializable {
 
     @FXML
     ListView<String> view2;
+
+    @FXML
+    private TextField id_text;
+
+    public static int id;
+
 
     public MainviewController(){
         System.out.println("MVC called");
@@ -32,20 +39,24 @@ public class MainviewController implements Initializable {
 
     @FXML
     private void editBook() throws IOException {
-        App.setRoot("update_delete_book");
+
+        try {
+            id = Integer.parseInt(id_text.getText().toString()); //Textfield -> String -> int
+        } catch (Exception e){
+            id_text.setText("ID ist keine zahl");
+        }
+        if (App.db_manager.checkMediumID(id)){
+            App.setRoot("update_delete_book");
+        }else{
+            id_text.setText("ID ist nicht vorhanden");
+        }
+
     }
     @FXML
     private void createBook() throws IOException {
         App.setRoot("create_book");
     }
-    @FXML
-    private void editGame() throws IOException {
-        App.setRoot("update_delete_game");
-    }
-    @FXML
-    private void createGame() throws IOException {
-        App.setRoot("create_Game");
-    }
+
     @FXML
     private void actionHibernate(){
         //nothing
@@ -65,5 +76,9 @@ public class MainviewController implements Initializable {
         //String list2 = TableFormatter.formatTableGenre(App.db_manager.getAllGenres()).toString();
         view2.getItems().add(list); // print in List View
         //view2.getItems().add(list2);
+    }
+
+    public static int getId() {
+        return id;
     }
 }
