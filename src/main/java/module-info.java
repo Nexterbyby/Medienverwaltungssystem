@@ -7,9 +7,11 @@ module ch.bbw {
     requires net.bytebuddy;
     requires com.fasterxml.classmate;
     requires java.xml.bind;
+    requires poi;
+    requires poi.ooxml;
+    requires poi.ooxml.schemas;
 
     opens ch.bbw to javafx.fxml;
     opens ch.bbw.Model to org.hibernate.orm.core;
-    exports ch.bbw.DBManager;
     exports ch.bbw;
 }

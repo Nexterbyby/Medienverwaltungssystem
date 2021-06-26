@@ -15,6 +15,8 @@ public class MainviewController implements Initializable {
     @FXML
     ListView<String> view2;
 
+    Converter converter;
+
     public MainviewController(){
         System.out.println("MVC called");
         if(!App.db_manager.isAlive()){
@@ -22,6 +24,7 @@ public class MainviewController implements Initializable {
         }else{
             System.out.println("db_manager already alive");
         }
+        this.converter = new Converter();
     }
 
     @FXML
@@ -46,12 +49,11 @@ public class MainviewController implements Initializable {
     }
     @FXML
     private void createCSV(){
-        Converter converter = new Converter();
-        try{
-            converter.convert();
-        }catch(IOException e){
-            e.printStackTrace();
-        }
+        converter.convertToCSV();
+    }
+    @FXML
+    private void createExcel(){
+        converter.convertToExcel();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
