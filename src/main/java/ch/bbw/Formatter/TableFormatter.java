@@ -18,7 +18,7 @@ public class TableFormatter {
 
     public static String formatTableMedium(List<Medium> datasets){
         String out = "";
-        out += String.format("%-5s %-60s %-29s %-25s %-15s %-15s %-30s %-15s %-100s\n",
+        out += String.format("%-5s %-60s %-29s %-25s %-15s %-15s %-30s %-15s %-50s %-20s\n",
                 "id",
                 "name",
                 "buy_date",
@@ -27,10 +27,11 @@ public class TableFormatter {
                 "language",
                 "publisher",
                 "type",
-                "comment");
+                "comment",
+                "genre");
 
         for(Medium m : datasets) {
-            out += String.format("%-5s %-60s %-29s %-25s %-15s %-15s %-30s %-15s %-100s\n",
+            out += String.format("%-5s %-60s %-29s %-25s %-15s %-15s %-30s %-15s %-50s %-20s\n",
                     m.getMedium_id() + "",
                     m.getName(),
                     m.getKaufdatum(),
@@ -39,7 +40,8 @@ public class TableFormatter {
                     m.getSprache().getName(),
                     m.getVerlag().getName(),
                     m.getTyp().getName(),
-                    m.getKommentar());
+                    m.getKommentar(),
+                    m.getGenres());
         }
         return out;
     }

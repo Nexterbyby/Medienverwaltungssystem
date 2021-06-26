@@ -1,6 +1,8 @@
 package ch.bbw.Model;
 
 import javax.persistence.*;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +23,7 @@ public class Medium {
     private int medium_id;
 
     @Column(name = "kaufdatum")
-    private String kaufdatum;
+    private Timestamp kaufdatum;
 
     @Column(name = "name")
     private String name;
@@ -58,16 +60,36 @@ public class Medium {
     public Medium(){
     }
 
-    public Medium (int medium_id,  String kaufdatum, Double preis, String kommentar){
+    public Medium (int medium_id,  Timestamp kaufdatum, Double preis, String kommentar){
         super();
         this.kaufdatum = kaufdatum;
         this.preis = preis;
-
         this.kommentar = kommentar;
     }
-    public Medium (  String kaufdatum, Double preis, String kommentar){
+    public Medium (  Timestamp kaufdatum, Double preis, String kommentar){
         this.kaufdatum = kaufdatum;
         this.preis = preis;
+        this.kommentar = kommentar;
+    }
+
+    public Medium(Timestamp kaufdatum, String name, Double preis, Sprache sprache, Verlag verlag, Kaufort kaufort, Typ typ, String kommentar) {
+        this.kaufdatum = kaufdatum;
+        this.name = name;
+        this.preis = preis;
+        this.sprache = sprache;
+        this.verlag = verlag;
+        this.kaufort = kaufort;
+        this.typ = typ;
+        this.kommentar = kommentar;
+    }
+
+    public Medium(String name, Double preis, Sprache sprache, Verlag verlag, Kaufort kaufort, Typ typ, String kommentar) {
+        this.name = name;
+        this.preis = preis;
+        this.sprache = sprache;
+        this.verlag = verlag;
+        this.kaufort = kaufort;
+        this.typ = typ;
         this.kommentar = kommentar;
     }
 
@@ -98,11 +120,11 @@ public class Medium {
         this.medium_id = medium_id;
     }
 
-    public String getKaufdatum() {
+    public Timestamp getKaufdatum() {
         return kaufdatum;
     }
 
-    public void setKaufdatum(String kaufdatum) {
+    public void setKaufdatum(Timestamp kaufdatum) {
         this.kaufdatum = kaufdatum;
     }
 
