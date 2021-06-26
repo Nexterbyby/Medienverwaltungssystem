@@ -43,7 +43,7 @@
       <HBox prefHeight="30.0" prefWidth="588.0">
          <children>
               <Button fx:id="updateBookButton" onAction="#switchToMainview" text="Update" />
-            <Button fx:id="updateBookButton1" onAction="#switchToMainview" text="Delete" />
+            <Button fx:id="updateBookButton1" onAction="#delete" text="Delete" />
          </children>
       </HBox>
     </children>

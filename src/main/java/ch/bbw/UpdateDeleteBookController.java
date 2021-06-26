@@ -17,6 +17,19 @@ import javafx.scene.control.TextField;
 public class UpdateDeleteBookController implements Initializable {
 
     @FXML
+    private ChoiceBox<Sprache> csprache = new ChoiceBox<Sprache>();
+    @FXML
+    private ChoiceBox<Kaufort> ckaufort = new ChoiceBox<Kaufort>();
+    @FXML
+    private ChoiceBox<Typ> ctyp = new ChoiceBox<Typ>();
+    @FXML
+    private ChoiceBox<Verlag> cverlag = new ChoiceBox<Verlag>();
+    @FXML
+    private TextField ename, epreis, ekommentar;
+    @FXML
+    private CheckBox ccurrenttime;
+
+    @FXML
     private void switchToMainview() throws IOException {
         if(ccurrenttime.isSelected()){
             LocalDateTime now = LocalDateTime.now();
@@ -30,24 +43,14 @@ public class UpdateDeleteBookController implements Initializable {
                     cverlag.getValue(), ckaufort.getValue(), ctyp.getValue(), ekommentar.getText());
             App.db_manager.updateMedium(MainviewController.id, replaceMedium);
         }
-
-
         App.setRoot("mainview");
     }
 
     @FXML
-    private ChoiceBox<Sprache> csprache = new ChoiceBox<Sprache>();
-    @FXML
-    private ChoiceBox<Kaufort> ckaufort = new ChoiceBox<Kaufort>();
-    @FXML
-    private ChoiceBox<Typ> ctyp = new ChoiceBox<Typ>();
-    @FXML
-    private ChoiceBox<Verlag> cverlag = new ChoiceBox<Verlag>();
-    @FXML
-    private TextField ename, epreis, ekommentar;
-    @FXML
-    private CheckBox ccurrenttime;
-
+    public void delete() throws IOException {
+        App.db_manager.removeMedium(MainviewController.id);
+        App.setRoot("mainview");
+    }
 
 
     @Override
