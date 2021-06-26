@@ -1,6 +1,8 @@
 package ch.bbw;
 
+import ch.bbw.Model.Kaufort;
 import ch.bbw.Model.Sprache;
+import ch.bbw.Model.Verlag;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
@@ -16,17 +18,15 @@ public class CreateBookController {
     @FXML
     private TextField fld1;
     @FXML
-    private TextField fld2;
+    private CheckBox currentdate;
     @FXML
     private TextField fld3;
     @FXML
-    private TextField fld4;
+    private ChoiceBox<Sprache> csprache;
     @FXML
-    private TextField fld5;
+    private ChoiceBox<Verlag> cpublisher;
     @FXML
-    private TextField fld6;
-    @FXML
-    private TextField fld7;
+    private ChoiceBox<Kaufort> ckaufort;
     @FXML
     private TextField fld8;
 
@@ -52,13 +52,9 @@ public class CreateBookController {
     private String [] getFields(){
         return new String[]{
                 fld1.getText(),
-                fld2.getText(),
                 fld3.getText(),
-                fld4.getText(),
-                fld5.getText(),
-                fld6.getText(),
-                fld7.getText(),
                 fld8.getText()
         };
     }
+
 }
