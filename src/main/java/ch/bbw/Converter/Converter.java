@@ -61,24 +61,22 @@ public class Converter {
             //set style
             XSSFFont font = workbook.createFont();
             CellStyle cellStyle = workbook.createCellStyle();
-                cellStyle.setAlignment(HorizontalAlignment.LEFT);
+            cellStyle.setAlignment(HorizontalAlignment.LEFT);
+            CellStyle dateCellStyle = workbook.createCellStyle();
+            CreationHelper creationHelper = workbook.getCreationHelper();
+            dateCellStyle.setAlignment(HorizontalAlignment.LEFT);
+            dateCellStyle.setDataFormat(creationHelper.createDataFormat().getFormat("dd.mm.yyyy"));
             CellStyle headerCellStyle = workbook.createCellStyle();
-                headerCellStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
-                headerCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-                headerCellStyle.setAlignment(HorizontalAlignment.LEFT);
-                headerCellStyle.setBorderBottom(BorderStyle.THIN);
-                headerCellStyle.setBottomBorderColor(IndexedColors.BLACK.getIndex());
-            medium.setColumnWidth(0, 4 * 256);
-            medium.setColumnWidth(1, 9 * 256);
-            medium.setColumnWidth(2, 40 * 256);
-            medium.setColumnWidth(3, 20 * 256);
-            medium.setColumnWidth(4, 15 * 256);
-            medium.setColumnWidth(5, 9 * 256);
-            medium.setColumnWidth(6, 15 * 256);
-            medium.setColumnWidth(7, 20 * 256);
-            medium.setColumnWidth(8, 20 * 256);
-            medium.setColumnWidth(9, 9 * 256);
-            medium.setColumnWidth(10, 60 * 256);
+            headerCellStyle.setFillForegroundColor(IndexedColors.LIGHT_BLUE.getIndex());
+            headerCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            headerCellStyle.setAlignment(HorizontalAlignment.LEFT);
+            headerCellStyle.setBorderBottom(BorderStyle.THIN);
+            headerCellStyle.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+            //set column width
+            int [] sizes = {4, 9, 40, 20, 15, 9, 15, 20, 20, 9, 60};
+            for(int i = 0; i < sizes.length; i++){
+                medium.setColumnWidth(i, sizes[i] * 256);
+            }
             // get data from db
             List<Medium> mediumList = App.db_manager.getAllMedia();
             // insert data
@@ -105,7 +103,11 @@ public class Converter {
                 row.createCell(9).setCellValue(m.getTyp().getName());
                 row.createCell(10).setCellValue(m.getKommentar());
                 for(int j = 0; j < 10; j++){
-                    row.getCell(j+1).setCellStyle(cellStyle);
+                    if(j+1 == 3){
+                        row.getCell(j+1).setCellStyle(dateCellStyle);
+                    }else{
+                        row.getCell(j+1).setCellStyle(cellStyle);
+                    }
                 }
             }
             workbook.write(file);

@@ -296,6 +296,23 @@ public class DatabaseManager{
     }
 
 
+    public void connect(Genre genre, Medium medium){
+        manager.getTransaction().begin();
+        try {
+            Medium m = manager.find(Medium.class, medium.getMedium_id());
+            Genre g = manager.find(Genre.class, genre.getGenre_id());
+            m.getGenres().add(g);
+            g.getMediumSet().add(m);
+            manager.persist(m);
+            manager.persist(g);
+            manager.getTransaction().commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            manager.getTransaction().rollback();
+        }
+    }
+
+
     public boolean isAlive() {
         return alive;
     }

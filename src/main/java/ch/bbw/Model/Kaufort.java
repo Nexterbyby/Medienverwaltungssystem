@@ -28,6 +28,10 @@ public class Kaufort {
         //empty
     }
 
+    public Kaufort(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Kaufort{" +
