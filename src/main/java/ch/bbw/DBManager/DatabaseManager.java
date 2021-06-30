@@ -295,27 +295,21 @@ public class DatabaseManager{
         return false;
     }
 
-    public void connectGenreMedium(Genre genre, Medium medium){
-        manager.getTransaction().begin();
-        try{
-            Medium xMedium = manager.find(Medium.class, medium.getMedium_id());
-            xMedium.setName(medium.getName());
-            medium.addGenres(medium.getGenres(), genre);
-            xMedium.setGenres(medium.getGenres());
-            xMedium.setKaufdatum(medium.getKaufdatum());
-            xMedium.setKaufort(medium.getKaufort());
-            xMedium.setKommentar(medium.getKommentar());
-            xMedium.setPreis(medium.getPreis());
-            xMedium.setSprache(medium.getSprache());
-            xMedium.setTyp(medium.getTyp());
-            xMedium.setVerlag(medium.getVerlag());
-            manager.getTransaction().commit();
-            System.out.println(medium.toString() + " updated");
-        }catch (Exception e){
-            manager.getTransaction().rollback();
-            e.printStackTrace();
-        }
 
+    public void connect(Genre genre, Medium medium){
+        manager.getTransaction().begin();
+        try {
+            Medium m = manager.find(Medium.class, medium.getMedium_id());
+            Genre g = manager.find(Genre.class, genre.getGenre_id());
+            m.getGenres().add(g);
+            g.getMediumSet().add(m);
+            manager.persist(m);
+            manager.persist(g);
+            manager.getTransaction().commit();
+        }catch (Exception e){
+            e.printStackTrace();
+            manager.getTransaction().rollback();
+        }
     }
 
 

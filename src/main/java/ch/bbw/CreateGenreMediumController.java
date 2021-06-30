@@ -20,7 +20,7 @@ public class CreateGenreMediumController implements Initializable {
 
     @FXML
     public void createRelation() throws IOException {
-        App.db_manager.connectGenreMedium(genre.getValue(), medium.getValue());
+        App.db_manager.connect(genre.getValue(), medium.getValue());
         App.setRoot("mainview");
     }
     @FXML
