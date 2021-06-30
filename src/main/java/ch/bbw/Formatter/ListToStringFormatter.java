@@ -12,7 +12,7 @@ public class ListToStringFormatter {
 
     public static String format(List<Genre> genreList){
         String list = "";
-        if(genreList.size() > 0){
+        if(genreList != null && genreList.size() > 0){
             for(int i = 0; i < genreList.size()-1;i++){
                 list += genreList.get(i).getName() + ",";
             }
