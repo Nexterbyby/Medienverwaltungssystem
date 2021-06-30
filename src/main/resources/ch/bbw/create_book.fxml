@@ -57,6 +57,7 @@
         <buttons>
             <Button fx:id="discardBtn" mnemonicParsing="false" onAction="#discard" text="discard" textFill="RED" />
             <Button mnemonicParsing="false" onAction="#createOther" text="create other" />
+            <Button mnemonicParsing="false" onAction="#connectGenreMedium" text="Add genre for medium" />
           <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#submit" text="submit" textFill="#26cd00" />
         </buttons>
       </ButtonBar>

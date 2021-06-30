@@ -73,6 +73,11 @@ public class CreateBookController implements Initializable {
         App.setRoot("create_other");
     }
 
+    @FXML
+    public void connectGenreMedium() throws IOException{
+        App.setRoot("create_genre_medium");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (Sprache s:

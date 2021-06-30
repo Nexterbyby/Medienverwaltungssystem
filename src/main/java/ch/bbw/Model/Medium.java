@@ -95,6 +95,21 @@ public class Medium {
         this.kommentar = kommentar;
     }
 
+    @Override
+    public String toString() {
+        return "Medium{" +
+                "medium_id=" + medium_id +
+                ", kaufdatum=" + kaufdatum +
+                ", name='" + name + '\'' +
+                ", preis=" + preis +
+                ", sprache=" + sprache +
+                ", verlag=" + verlag +
+                ", kaufort=" + kaufort +
+                ", typ=" + typ +
+                ", kommentar='" + kommentar + '\'' +
+                ", genres=" + genres +
+                '}';
+    }
 
     //Getter and Setter
 
@@ -169,6 +184,8 @@ public class Medium {
     public void setGenres(List<Genre> genres) {
         this.genres = genres;
     }
+
+    public void addGenres(List<Genre> genres, Genre genre){genres.add(genre);}
 
     public String getName() {
         return name;

@@ -295,6 +295,29 @@ public class DatabaseManager{
         return false;
     }
 
+    public void connectGenreMedium(Genre genre, Medium medium){
+        manager.getTransaction().begin();
+        try{
+            Medium xMedium = manager.find(Medium.class, medium.getMedium_id());
+            xMedium.setName(medium.getName());
+            medium.addGenres(medium.getGenres(), genre);
+            xMedium.setGenres(medium.getGenres());
+            xMedium.setKaufdatum(medium.getKaufdatum());
+            xMedium.setKaufort(medium.getKaufort());
+            xMedium.setKommentar(medium.getKommentar());
+            xMedium.setPreis(medium.getPreis());
+            xMedium.setSprache(medium.getSprache());
+            xMedium.setTyp(medium.getTyp());
+            xMedium.setVerlag(medium.getVerlag());
+            manager.getTransaction().commit();
+            System.out.println(medium.toString() + " updated");
+        }catch (Exception e){
+            manager.getTransaction().rollback();
+            e.printStackTrace();
+        }
+
+    }
+
 
     public boolean isAlive() {
         return alive;
