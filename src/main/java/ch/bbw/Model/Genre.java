@@ -29,6 +29,10 @@ public class Genre {
     public Genre() {
     }
 
+    public Genre(String name) {
+        this.name = name;
+    }
+
     public Genre(int genre_id, String name, List<Medium> mediumSet) {
         this.genre_id = genre_id;
         this.name = name;

@@ -29,6 +29,10 @@ public class Sprache {
         this.name = name;
     }
 
+    public Sprache(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Sprache{" +

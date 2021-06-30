@@ -68,12 +68,9 @@ public class CreateBookController implements Initializable {
         App.setRoot("mainview");
     }
 
-    private String [] getFields(){
-        return new String[]{
-                fld1.getText(),
-                fld3.getText(),
-                fld8.getText()
-        };
+    @FXML
+    public void createOther() throws IOException {
+        App.setRoot("create_other");
     }
 
     @Override

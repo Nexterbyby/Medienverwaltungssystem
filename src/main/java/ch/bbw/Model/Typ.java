@@ -25,6 +25,10 @@ public class Typ {
         this.name = name;
     }
 
+    public Typ(String name) {
+        this.name = name;
+    }
+
     public Typ(){
         // empty
     }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.bbw.CreateOtherController">
+   <children>
+      <Label layoutX="47.0" layoutY="21.0" text="Genre/Kaufort/Sprache/Verlag/Typ hinzufügen">
+         <font>
+            <Font name="Arial" size="21.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="47.0" layoutY="55.0" prefHeight="254.0" prefWidth="494.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Name für die Kategorie" />
+            <TextField fx:id="name" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <ButtonBar layoutX="4.0" layoutY="328.0" prefHeight="40.0" prefWidth="593.0">
+         <buttons>
+            <Button mnemonicParsing="false" onAction="#cancel" text="Cancel" textFill="#ff0303" />
+            <Button mnemonicParsing="false" onAction="#addGenre" text="Als Genre hunzufügen" />
+            <Button mnemonicParsing="false" onAction="#addKaufort" text="Als Kaufort hinzufügen" />
+            <Button mnemonicParsing="false" onAction="#addVerlag" text="Als Verlag hinzufügen" />
+            <Button mnemonicParsing="false" onAction="#addTyp" text="Als Typ hinzufügen" />
+            <Button mnemonicParsing="false" onAction="#addSprache" text="Als Sprache hinzufügen" />
+         </buttons>
+      </ButtonBar>
+   </children>
+</Pane>
