@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -51,7 +52,7 @@ public class Medium {
     private String kommentar;
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "mediumSet")
-    Set<Genre> genres = new HashSet<>();
+    private List<Genre> genres;
 
 
 
@@ -66,6 +67,7 @@ public class Medium {
         this.preis = preis;
         this.kommentar = kommentar;
     }
+
     public Medium (  Timestamp kaufdatum, Double preis, String kommentar){
         this.kaufdatum = kaufdatum;
         this.preis = preis;
@@ -93,24 +95,8 @@ public class Medium {
         this.kommentar = kommentar;
     }
 
-    @Override
-    public String toString() {
-        return "Medium{" +
-                "medium_id=" + medium_id +
-                ", kaufdatum='" + kaufdatum + '\'' +
-                ", name='" + name + '\'' +
-                ", preis=" + preis +
-                ", sprache=" + sprache +
-                ", verlag=" + verlag +
-                ", kaufort=" + kaufort +
-                ", typ=" + typ +
-                ", kommentar='" + kommentar + '\'' +
-                ", genres=" + genres +
-                '}';
-    }
 
     //Getter and Setter
-
 
     public int getMedium_id() {
         return medium_id;
@@ -176,11 +162,11 @@ public class Medium {
         this.kommentar = kommentar;
     }
 
-    public Set<Genre> getGenres() {
+    public List<Genre> getGenres() {
         return genres;
     }
 
-    public void setGenres(Set<Genre> genres) {
+    public void setGenres(List<Genre> genres) {
         this.genres = genres;
     }
 
