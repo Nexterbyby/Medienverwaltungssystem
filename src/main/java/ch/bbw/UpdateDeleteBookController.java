@@ -14,6 +14,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
+/**
+ * @author RiceDefender
+ * @version 0.0.1
+ * @since 0.0.1
+ */
 public class UpdateDeleteBookController implements Initializable {
 
     @FXML
@@ -29,6 +34,10 @@ public class UpdateDeleteBookController implements Initializable {
     @FXML
     private CheckBox ccurrenttime;
 
+    /**
+     * Methode um den Datensatz zu Updaten und zu MeinviewController zu wechseln.
+     * @throws IOException
+     */
     @FXML
     private void switchToMainview() throws IOException {
         if(ccurrenttime.isSelected()){
@@ -46,6 +55,10 @@ public class UpdateDeleteBookController implements Initializable {
         App.setRoot("mainview");
     }
 
+    /**
+     * Methode um den ausgewählten Datensatz zu Löschen
+     * @throws IOException
+     */
     @FXML
     public void delete() throws IOException {
         App.db_manager.removeMedium(MainviewController.id);
@@ -53,6 +66,11 @@ public class UpdateDeleteBookController implements Initializable {
     }
 
 
+    /**
+     * Methode um die Daten zu Initialization um zu Updaten oder Löschen.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (Sprache s:

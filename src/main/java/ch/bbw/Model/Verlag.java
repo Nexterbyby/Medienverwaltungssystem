@@ -3,6 +3,11 @@ package ch.bbw.Model;
 
 import javax.persistence.*;
 
+/**
+ * @author RiceDefender
+ * @version 0.0.1
+ * @since 0.0.1
+ */
 @Entity
 @Table(name = "verlag")
 @NamedQuery(name ="Verlag.findAll", query = "Select e FROM Verlag e")

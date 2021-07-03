@@ -6,6 +6,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * @author RiceDefender
+ * @version 0.0.1
+ * @since 0.0.1
+ */
 @Entity
 @Table(name = "genre")
 @NamedQuery(name ="Genre.findAll", query = "Select e FROM Genre e")
