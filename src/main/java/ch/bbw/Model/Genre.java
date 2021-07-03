@@ -41,10 +41,7 @@ public class Genre {
 
     @Override
     public String toString() {
-        return "Genre{" +
-                "genre_id=" + genre_id +
-                ", name='" + name +
-                '}';
+        return name;
     }
 
     public int getGenre_id() {

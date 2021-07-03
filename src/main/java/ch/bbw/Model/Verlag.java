@@ -25,10 +25,7 @@ public class Verlag {
 
     @Override
     public String toString() {
-        return "Verlag{" +
-                "verlag_id=" + verlag_id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 
     //Getter and Setter

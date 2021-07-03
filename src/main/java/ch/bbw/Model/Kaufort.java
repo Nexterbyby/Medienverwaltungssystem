@@ -34,10 +34,7 @@ public class Kaufort {
 
     @Override
     public String toString() {
-        return "Kaufort{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 
     public int getId() {

@@ -97,18 +97,7 @@ public class Medium {
 
     @Override
     public String toString() {
-        return "Medium{" +
-                "medium_id=" + medium_id +
-                ", kaufdatum=" + kaufdatum +
-                ", name='" + name + '\'' +
-                ", preis=" + preis +
-                ", sprache=" + sprache +
-                ", verlag=" + verlag +
-                ", kaufort=" + kaufort +
-                ", typ=" + typ +
-                ", kommentar='" + kommentar + '\'' +
-                ", genres=" + genres +
-                '}';
+        return name;
     }
 
     //Getter and Setter

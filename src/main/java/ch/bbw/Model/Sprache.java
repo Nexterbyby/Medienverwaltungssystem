@@ -35,10 +35,7 @@ public class Sprache {
 
     @Override
     public String toString() {
-        return "Sprache{" +
-                "sprache_id=" + sprache_id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 
     public int getSprache_id() {
