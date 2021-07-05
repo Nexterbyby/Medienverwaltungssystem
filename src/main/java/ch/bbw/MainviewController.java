@@ -12,6 +12,12 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 
+/**
+ * @author RiceDefender
+ * @author Nexterbyby
+ * @version 0.0.1
+ * @since 0.0.1
+ */
 public class MainviewController implements Initializable {
 
     @FXML
@@ -23,6 +29,7 @@ public class MainviewController implements Initializable {
     public static int id;
 
     Converter converter;
+
 
 
     public MainviewController(){
@@ -67,6 +74,12 @@ public class MainviewController implements Initializable {
     private void createExcel(){
         converter.convertToExcel();
     }
+
+    /**
+     * Methode um die Daten beim Start auszugeben.
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println(App.db_manager.getAllMedia().toString()); //print in console

@@ -51,9 +51,6 @@ public class Typ {
 
     @Override
     public String toString() {
-        return "Typ{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return name;
     }
 }

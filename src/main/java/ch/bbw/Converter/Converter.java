@@ -27,7 +27,7 @@ public class Converter {
     public void convertToCSV(){
         BufferedWriter bufferedWriter = null;
         try{
-            File output = new File("C:\\Users\\" + System.getProperty("user.name") + "\\Downloads" + "\\" + System.currentTimeMillis() + ".txt");
+            File output = new File("C:\\Users\\" + System.getProperty("user.name") + "\\Downloads" + "\\" + System.currentTimeMillis() + ".csv");
             bufferedWriter = new BufferedWriter(new FileWriter(output));
             List<Medium> mediumList = App.db_manager.getAllMedia();
             String out = "";

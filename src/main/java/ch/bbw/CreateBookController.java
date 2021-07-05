@@ -14,6 +14,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+/**
+ * @author RiceDefender
+ * @version 0.0.1
+ * @since 0.0.1
+ */
 public class CreateBookController implements Initializable {
 
     @FXML
@@ -34,12 +39,10 @@ public class CreateBookController implements Initializable {
     private TextField fld8;
 
 
-
-    @FXML
-    private void createData() throws IOException {
-        App.setRoot("mainview");
-    }
-
+    /**
+     * Methode um die Daten in MariaDB hineinzuwerfen und danach nach MainviewController wechseln
+     * @throws IOException
+     */
     @FXML
     private void submit() throws IOException{
         if (currentdate.isSelected()) {
@@ -54,30 +57,41 @@ public class CreateBookController implements Initializable {
                     ckaufort.getValue(), ctyp.getValue(), fld8.getText());
             App.db_manager.saveMedium(medium);
         }
-        /*
-        String [] fields = getFields();
-        for(int i = 0; i < 8; i++){
-            System.out.println(fields[i]);
-        }
-         */
         App.setRoot("mainview");
     }
 
+    /**
+     * Methode um zurück in die MainviewController zu kommen ohne Daten in MariaDB zu tun.
+     * @throws IOException
+     */
     @FXML
     private void discard() throws IOException{
         App.setRoot("mainview");
     }
 
+    /**
+     * Methode um in CreateOtherController zu kommen.
+     * @throws IOException
+     */
     @FXML
     public void createOther() throws IOException {
         App.setRoot("create_other");
     }
 
+    /**
+     * Methode um in ConnectGenreMedium zu kommen.
+     * @throws IOException
+     */
     @FXML
     public void connectGenreMedium() throws IOException{
         App.setRoot("create_genre_medium");
     }
 
+    /**
+     * Methode für Initialization der Daten von der MariaDB
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (Sprache s:
