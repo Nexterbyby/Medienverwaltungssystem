@@ -31,9 +31,16 @@ public class Genre {
     )
     private List<Medium> mediumSet;
 
+    /**
+     * Leerer Constructor um Genre zu erstellen
+     */
     public Genre() {
     }
 
+    /**
+     * Constructor um den Namen zu setzen
+     * @param name
+     */
     public Genre(String name) {
         this.name = name;
     }
@@ -44,32 +51,51 @@ public class Genre {
         this.mediumSet = mediumSet;
     }
 
+    /**
+     * ToString Methode um den Namen der Genre zu erhalten
+     * @return String um den Namen der Genre zu erhalten
+     */
     @Override
     public String toString() {
         return name;
     }
 
+    /**
+     * Getter Methode um den id einer Genre zu erhalten
+     * @return id von einem Genre
+     */
     public int getGenre_id() {
         return genre_id;
     }
 
+    /*
     public void setGenre_id(int genre_id) {
         this.genre_id = genre_id;
     }
+     */
 
+    /**
+     * Getter Methode um den Namen der Genre zu erhalten
+     * @return name von einem Genre
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter Methode um den Namen zu setzen
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Getter Methode um die Medium Liste zu erhalten
+     * @return List Medium
+     */
     public List<Medium> getMediumSet() {
         return mediumSet;
     }
 
-    public void setMediumSet(List<Medium> mediumSet) {
-        this.mediumSet = mediumSet;
-    }
 }

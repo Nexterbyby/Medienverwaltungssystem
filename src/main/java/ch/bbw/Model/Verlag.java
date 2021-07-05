@@ -21,13 +21,24 @@ public class Verlag {
     @Column(name = "name", nullable = false)
     private String name;
 
+    /**
+     * Leerer Constructor um Verlag zu erstellen
+     */
     public Verlag() {
     }
 
+    /**
+     * Constructor um den Namen des Verlages zu setzen.
+     * @param name
+     */
     public Verlag(String name) {
         this.name = name;
     }
 
+    /**
+     * ToString Methode um den Namen vom Verlag zu erhalten
+     * @return name
+     */
     @Override
     public String toString() {
         return name;
@@ -35,6 +46,7 @@ public class Verlag {
 
     //Getter and Setter
 
+    /*
     public int getVerlag_id() {
         return verlag_id;
     }
@@ -42,11 +54,20 @@ public class Verlag {
     public void setVerlag_id(int verlag_id) {
         this.verlag_id = verlag_id;
     }
+     */
 
+    /**
+     * Getter Methode um den Namen zu erhalten
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Setter Methode um den Namen zu Setzen
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
