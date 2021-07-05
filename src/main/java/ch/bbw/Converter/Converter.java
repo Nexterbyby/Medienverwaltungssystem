@@ -24,6 +24,10 @@ public class Converter {
         // nothing
     }
 
+    /**
+     * Diese Funktion erstellt eine Textdatei im CSV Format.
+     * @throws "IOException"
+     */
     public void convertToCSV(){
         BufferedWriter bufferedWriter = null;
         try{
@@ -52,6 +56,10 @@ public class Converter {
         }
     }
 
+    /**
+     * Diese Funktion convertiert alle Datensätze der Datenbank in eine Excel Tabelle.
+     * @throws "IOException"
+     */
     public void convertToExcel(){
         XSSFWorkbook workbook = new XSSFWorkbook();
         try{

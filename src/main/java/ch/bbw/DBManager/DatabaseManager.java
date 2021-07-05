@@ -23,6 +23,10 @@ public class DatabaseManager{
         System.out.println("DatabaseManager init");
     }
 
+    /**
+     * Diese Funktion stellt die Verbindung zur Datenbank her.
+     * Sie überprüft auch ob die Datenbank schon am laufen ist.
+     */
     public void startup(){
         try{
             this.emFactory = Persistence.createEntityManagerFactory("MyPersistanceUnit");
@@ -33,6 +37,9 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Diese Funktion schliesst die Verbindung zur Datenbank.
+     */
     public void closeup(){
         this.emFactory.close();
         this.manager.close();
@@ -42,6 +49,10 @@ public class DatabaseManager{
     // | READ OPERATIONS                                                   |
     // +-------------------------------------------------------------------+
 
+    /**
+     * Diese Funktion hohlt von der Datenbank alle Genres.
+     * @return Eine Liste von Genre Objekten.
+     */
     public List<Genre> getAllGenres(){
         manager.getTransaction().begin();
         @SuppressWarnings("unchecked")
@@ -50,6 +61,10 @@ public class DatabaseManager{
         return genres;
     }
 
+    /**
+     * Diese Funktion hohlt von der Datenbank alle Kauforte.
+     * @return Eine Liste von Kaufort Objekten.
+     */
     public List<Kaufort> getAllKauforte(){
         manager.getTransaction().begin();
         @SuppressWarnings("unchecked")
@@ -58,6 +73,10 @@ public class DatabaseManager{
         return kauforte;
     }
 
+    /**
+     * Diese Funktion hohlt von der Datenbank alle Medien.
+     * @return Eine Liste von Medium Objekten.
+     */
     public List<Medium> getAllMedia(){
         manager.getTransaction().begin();
         @SuppressWarnings("unchecked")
@@ -66,6 +85,10 @@ public class DatabaseManager{
         return medien;
     }
 
+    /**
+     * Diese Funktion hohlt von der Datenbank alle Sprachen.
+     * @return Eine Liste von Sprache Objekten.
+     */
     public List<Sprache> getAllSprachen(){
         manager.getTransaction().begin();
         @SuppressWarnings("unchecked")
@@ -74,6 +97,10 @@ public class DatabaseManager{
         return sprachen;
     }
 
+    /**
+     * Diese Funktion hohlt von der Datenbank alle Typen.
+     * @return Eine Liste von Typ Objekten.
+     */
     public List<Typ> getAllTypen(){
         manager.getTransaction().begin();
         @SuppressWarnings("unchecked")
@@ -82,6 +109,10 @@ public class DatabaseManager{
         return typen;
     }
 
+    /**
+     * Diese Funktion hohlt von der Datenbank alle Publisher/Verläge.
+     * @return Eine Liste von Verlag Objekten.
+     */
     public List<Verlag> getAllVerlaege(){
         manager.getTransaction().begin();
         @SuppressWarnings("unchecked")
@@ -90,6 +121,11 @@ public class DatabaseManager{
         return verlaege;
     }
 
+    /**
+     * Diese Funktion hohlt von der Datenbank alle Genres.
+     * @param id Id ist Suchparameter um den Datensatz zu finden.
+     * @return Eine Medium Objekt.
+     */
     public Medium getMedia(int id){
         Medium xMedium = manager.find(Medium.class, id);
         return xMedium;
@@ -100,6 +136,10 @@ public class DatabaseManager{
     // | SAVE OPERATIONS                                                                     |
     // +-------------------------------------------------------------------------------------+
 
+    /**
+     * Ein Genre Objekt wird in der Datenbank abgespeichert.
+     * @param genre Ein Genre Objekt.
+     */
     public void saveGenre(Genre genre){
         manager.getTransaction().begin();
         try{
@@ -112,6 +152,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Ein Kaufort Objekt wird in der Datenbank abgespeichert.
+     * @param kaufort Ein Kaufort Objekt.
+     */
     public void saveKaufort(Kaufort kaufort){
         manager.getTransaction().begin();
         try{
@@ -124,6 +168,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Ein Medium Objekt wird in der Datenbank abgespeichert.
+     * @param medium Ein Medium Objekt.
+     */
     public void saveMedium(Medium medium){
         manager.getTransaction().begin();
         try{
@@ -136,6 +184,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Ein Sprache Objekt wird in der Datenbank abgespeichert.
+     * @param sprache Ein Sprache Objekt.
+     */
     public void saveSprache(Sprache sprache){
         manager.getTransaction().begin();
         try{
@@ -148,6 +200,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Ein Typ Objekt wird in der Datenbank abgespeichert.
+     * @param typ Ein Typ Objekt.
+     */
     public void saveTyp(Typ typ){
         manager.getTransaction().begin();
         try{
@@ -160,6 +216,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Ein Verlag Objekt wird in der Datenbank abgespeichert.
+     * @param verlag Ein Verlag Objekt.
+     */
     public void saveVerlag(Verlag verlag){
         manager.getTransaction().begin();
         try{
@@ -178,6 +238,11 @@ public class DatabaseManager{
     // +------------------------------------------------------------------------------------------------+
 
 
+    /**
+     * Diese Funktion ersetzt/updated einen Datensatz in der Datenbank
+     * @param id Die Id vom Datansatz der ersetzt werden soll.
+     * @param medium Ein Genre Objekt, dass das in der Datenbank ersezten soll.
+     */
     public void updateMedium(int id, Medium medium){
         manager.getTransaction().begin();
         try{
@@ -204,6 +269,10 @@ public class DatabaseManager{
     // | REMOVE DATASETS                                                                                |
     // +------------------------------------------------------------------------------------------------+
 
+    /**
+     * Diese Funtion löscht ein Genre in der Datenbank.
+     * @param id Die Id vom Datansatz der ersetzt werden soll.
+     */
     public void removeGenre(int id){
         manager.getTransaction().begin();
         try{
@@ -217,6 +286,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Diese Funtion löscht einen Kaufort in der Datenbank.
+     * @param id Die Id vom Datansatz der ersetzt werden soll.
+     */
     public void removeKaufort(int id){
         manager.getTransaction().begin();
         try{
@@ -230,6 +303,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Diese Funtion löscht in Medium in der Datenbank.
+     * @param id Die Id vom Datansatz der ersetzt werden soll.
+     */
     public void removeMedium(int id){
         manager.getTransaction().begin();
         try{
@@ -243,6 +320,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Diese Funtion löscht eine Sprache in der Datenbank.
+     * @param id Die Id vom Datansatz der ersetzt werden soll.
+     */
     public void removeSprache(int id){
         manager.getTransaction().begin();
         try{
@@ -256,6 +337,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Diese Funtion löscht einen Typ in der Datenbank.
+     * @param id Die Id vom Datansatz der ersetzt werden soll.
+     */
     public void removeTyp(int id){
         manager.getTransaction().begin();
         try{
@@ -269,6 +354,10 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Diese Funtion löscht einen Verlag in der Datenbank.
+     * @param id Die Id vom Datansatz der ersetzt werden soll.
+     */
     public void removeVerlag(int id){
         manager.getTransaction().begin();
         try{
@@ -282,6 +371,11 @@ public class DatabaseManager{
         }
     }
 
+    /**
+     * Diese Funktion überprüft ob ein Medium in der Datenbank existiert.
+     * @param id Die Id vom Datansatz der ersetzt werden soll.
+     * @return Ein wahr/falsch Wert ob es schon existiert.
+     */
     public boolean checkMediumID(int id){
         try{
             Medium xMedium = manager.find(Medium.class, id);
@@ -295,7 +389,11 @@ public class DatabaseManager{
         return false;
     }
 
-
+    /**
+     * Diese Funktion verbindet ein Medium Objekt und ein Genre Objekt in der zwischen Tabelle.
+     * @param genre Ein existierendes Genre Objekt
+     * @param medium Ein existierendes Medium Objekt.
+     */
     public void connect(Genre genre, Medium medium){
         manager.getTransaction().begin();
         try {
@@ -312,11 +410,18 @@ public class DatabaseManager{
         }
     }
 
-
+    /**
+     * Diese Funktion prüft ob die Verbindung mit der Datenbank bereits existiert.
+     * @return Gibt wahr/falsch zurück ob die Verbindung mit der Datenbank bereits existiert.
+     */
     public boolean isAlive() {
         return alive;
     }
 
+    /**
+     * Diese Funktion ändert den Status der Verbindung.
+     * @param alive Setzt den Wert ob die Verbindung da ist oder nicht.
+     */
     public void setAlive(boolean alive) {
         this.alive = alive;
     }
